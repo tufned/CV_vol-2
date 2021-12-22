@@ -1,0 +1,997 @@
+* 
+    margin: 0
+    font-size: 18px
+    font-family: 'Roboto Slab', serif;
+    color: #3a3f5e
+
+
+
+ul 
+    margin-left: 0 
+    padding-left: 0 
+li 
+    list-style: none
+
+a 
+    text-decoration: none
+    
+button, input, textarea 
+    outline: none
+    border: none
+
+
+
+
+
+%flex
+    display: flex
+    justify-content: center
+    align-items: center
+
+
+%on-active
+    transform: scale(0.92)
+
+
+
+
+.bg_onproject
+    position: absolute
+    width: 100%
+    top: 0
+    left: 0
+    background-color: #1e2030
+    z-index: -2
+    opacity: 0
+    transition: all 1s ease
+
+
+
+
+
+#main-page 
+    height: 100vh
+    padding: 0 5vw 0 5vw
+    // border-radius: 0 0 20px 20px
+    // box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.2)
+    position: relative
+    overflow: hidden
+    // background: linear-gradient(135deg, #f5f9ff, #fff6f2);
+
+
+
+
+
+// nav-bar
+.nav-bar-block
+    width: 100%
+    height: 12%
+    // background-color: #323232
+    display: flex
+    align-items: end
+    justify-content: space-between
+
+    .nav-bar
+        height: 50px
+        width: 550px
+        // background-color: #fff
+        border-radius: 100px
+        @extend %flex
+        justify-content: space-between
+        transition: all .4s ease
+        padding: 0 20px
+        position: relative
+
+        .nav-line
+            height: 50%
+            width: 2px
+            background-color: #3a3f5e
+            display: none
+            border-radius: 10px
+
+        .outline
+            height: 120%
+            width: 90px
+            background-color: #f5f5f5
+            color: #f5f5f5
+            border-radius: 120px
+            position: absolute
+            left: 0
+            @extend %flex
+
+        .nav-elem
+            @extend %flex
+            position: relative
+            z-index: 3
+            border-radius: 10px
+            transition: all .2s ease
+
+            a
+                .nav-text
+                    padding: 10px
+                    transition: all .2s ease
+                    font-weight: 500
+
+                .nav-text:hover 
+                    transform: translateY(2px)
+
+                .nav-text-onaction
+                    color: #5187ff
+        
+        $l-c-b_height: 40px
+        .lang-change-block
+            height: $l-c-b_height
+            width: 80px
+            // background-color: #fff
+
+            .lang-container
+                position: relative
+
+                .lang
+                    height: $l-c-b_height
+                    padding: 0 20%
+                    width: 60%
+                    @extend %flex
+                    justify-content: space-between
+                    z-index: 1
+                    position: relative
+                    border-radius: 10px
+                    transition: all .2s ease
+
+                    p
+                        transition: all .2s ease
+
+                    .arrow
+                        position: relative
+                        top: 2px
+                        @extend %flex
+                        width: 15px
+                        height: 15px
+                        transition: all 0.2s ease
+                        transform: rotate(-90deg)
+
+                .lang_hide
+                    opacity: 0
+                    z-index: 0
+                    position: absolute
+                    top: 0
+
+            .lang-container:hover .lang_hide
+                opacity: 1
+                transform: translateY(100%)
+            .lang-container:hover .arrow
+                transform: rotate(0deg)
+
+            .lang:hover
+                background-color: rgba(236, 243, 253, 0.8)
+                cursor: pointer
+            .lang:hover p
+                transform: translateY(2px)
+
+            .lang_hide:hover
+                opacity: 1
+                transform: translateY(0)
+            .lang_hide:hover .arrow
+                transform: rotate(-90deg)
+
+
+
+        .nav-elem:hover
+            background-color: rgba(236, 243, 253, 0.8)
+        .nav-elem:active
+            @extend %on-active
+
+
+        .nav-elem_main 
+            display: none
+
+
+
+    .nav-bar_changed
+        transform: translateY(200%)
+        position: fixed
+        z-index: 999
+        left: 30px
+        top: -80px
+        width: 450px
+        background-color: rgba(255, 255, 255, 0.63)
+        box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.1)
+        transition-delay: .2s
+        padding: 0 15px
+    .nav-bar_changed:hover
+        transition-delay: 0s 
+        background-color: rgba(255, 255, 255, 1)
+        box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.2)
+    .nav-bar_changed:active
+        transform: translateY(200%) scale(0.98)
+
+    .nav-bar_changed_contactPge
+        transform: translateY(0%)
+
+
+.soc-med-links
+    height: 50px
+    width: 12%
+    padding: 0 20px
+    @extend %flex
+    justify-content: space-between
+
+    .icon-shell
+        height: 50px
+        width: 50px
+        @extend %flex
+        transition: all .2s ease
+        border-radius: 10px
+        
+        .icon
+            height: 55%
+            width: 55%
+            transition: all .2s ease
+            
+    .icon-shell:hover .icon
+        transform: translateY(2px)
+    .icon-shell:hover
+        background-color: rgba(236, 243, 253, 0.8)
+    .icon-shell:active
+        @extend %on-active   
+
+    
+
+
+
+
+.main-page_bg
+    z-index: -1
+    position: absolute
+    top: 0
+    left: -5%
+    height: 95%
+    width: 110%
+
+.bg-block
+    height: 40%
+    width: 100%
+    background: linear-gradient(135deg, #f5f9ff, #fff6f2)
+
+.bg-figure
+    height: 60%
+    width: 100%
+    border-radius: 0 0 100% 100%
+    background: linear-gradient(135deg, #f5f9ff, #fff6f2)
+
+
+
+
+
+
+$name-block-height: 90px
+
+.main-block
+    height: 88%
+    width: 100%
+    display: flex
+
+    .left-side
+        width: 50%
+        @extend %flex
+
+        .container
+            @extend %flex
+            flex-direction: column
+            align-items: start
+            justify-content: space-between
+            padding-left: 40px
+            position: relative
+            margin-top: 5%
+            height: 62%
+            
+
+            .line
+                    height: $name-block-height
+                    width: 5px
+                    border-radius: 1px
+                    background: -webkit-linear-gradient(90deg, #6967f0 20%, #2188ff 100%)
+                    position: absolute
+                    left: 0
+                    top: 0
+
+            .name-block
+                height: $name-block-height
+                display: flex
+                flex-direction: column
+                justify-content: space-between
+                align-items: start
+
+                h1
+                    font-size: 60px
+                    line-height: 45px
+                    letter-spacing: 5px
+                h3
+                    letter-spacing: 3px
+                    font-size: 25px
+                    font-weight: 500
+
+            .info-block
+                width: 70% 
+                // margin-bottom: 2%
+                p
+                    line-height: 30px
+
+
+            .button-block
+                height: 120px
+                width: 350px
+                transition: all .1s ease
+                margin: 0 0 10px 40px
+
+                .action-but 
+                    @extend %flex
+                    font-size: 25px
+                    height: 70px
+                    width: 200px
+                    border-radius: 100px 
+                    background-color: #f9f8fa
+                    border: 3px solid #5187ff
+                    color: #5187ff
+                    transition: all .2s ease
+                    position: absolute
+                    transform: rotate(-3deg)
+                    white-space: nowrap
+
+                .action-but:hover 
+                    cursor: pointer
+                    background-color: #5187ff
+                    color: #fff
+                    box-shadow: 0px 10px 30px 0px rgba(81, 135, 255, 0.4)
+                    transform: rotate(0) scale(0.97)
+                    border: 6px solid #5187ff
+                .action-but:active
+                    transform: rotate(0) scale(0.92)
+                
+
+
+
+
+
+
+#just-info-block
+    height: 200px
+    width: 90%
+    position: relative
+    padding: 0 5%
+    overflow: hidden
+
+    .bg_just-info
+        height: 100%
+        width: 90%
+        position: absolute
+        z-index: 2
+        background-image: linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0) 50%, #fff)
+
+    .text_just-info
+        height: 100%
+        @extend %flex
+        position: relative
+        z-index: 1
+        overflow: hidden
+
+        .just-info
+            font-size: 40px
+            transition: all .05s ease
+            position: relative
+            left: 300px
+            color: #bbc2cc
+
+
+        
+
+
+
+
+
+
+
+#skill-page
+    height: 800px
+    @extend %flex
+    position: relative
+    margin-bottom: 100px
+
+    .blocks-container 
+        height: 75%
+        width: 65%
+        display: grid
+        grid-template-columns: repeat(6, 1fr)
+        grid-template-rows: repeat(4, 1fr)
+        grid-template-areas: ". exp exp . . ." "js js git html html ." "js js skills skills sass linux" ". react react react port port"
+
+        .skill-block 
+            margin: 5px
+            border-radius: 10px
+            background-color: #fff
+            @extend %flex
+            font-size: 30px
+            font-weight: 500
+            text-align: center
+            position: relative
+            z-index: 2
+            transition: all .5s ease
+        .skill-block:hover
+            transform: scale(1.03)
+            cursor: default
+
+        .block_js
+            grid-area: js  
+        .block_git
+            grid-area: git
+        .block_html
+            grid-area: html
+        .block_exp
+            grid-area: exp
+            font-size: 35px
+            font-weight: 500
+            background: linear-gradient(130deg, #fa709a 0%, #fee140 100%);
+            color: #fff
+        .block_portfolio
+            grid-area: port
+            font-size: 35px
+            font-weight: 500
+            background: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%)
+            color: #fff
+        .block_react
+            grid-area: react
+        .block_linux
+            grid-area: linux
+        .block_sass
+            grid-area: sass
+        .block_empty
+            grid-area: empty
+        .block_skills
+            grid-area: skills
+            font-size: 45px
+            font-weight: 700
+            background: -webkit-linear-gradient(-70deg, #9867f0 0%, #2188ff 100%)
+            color: #fff
+
+    .blocks-container_shadows
+        position: absolute
+        
+        .skill-block_shadows
+            box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.2)
+            margin: 5px
+            border-radius: 10px
+
+        .block_skills
+            box-shadow: 0px 0px 60px 0px rgba(33, 136, 255, 0.4)
+        .block_portfolio
+            box-shadow: 0px 0px 60px 0px rgba(22, 160, 133, 0.4)
+        .block_exp
+            box-shadow: 0px 0px 60px 0px rgba(253, 168, 118, 0.4)
+    
+
+
+
+
+
+
+#about-me-page
+    height: 700px
+    @extend %flex
+    padding-left: 5%
+    margin-bottom: 10%
+
+    .about-me_left-side 
+        width: 40%
+        height: 90%
+        background-color: grey
+        border-radius: 10px
+        position: relative
+        box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.2)
+        transition: all .05s ease
+    .about-me_left-side_onactive 
+        top: 470px
+
+    .about-me_right-side
+        width: 35%
+        height: 100%
+        padding: 0 10%
+        @extend %flex
+        flex-direction: column
+
+        .about-me_title
+            width: 100%
+            h2 
+                font-size: 60px
+                font-weight: 700
+                background: -webkit-linear-gradient(70deg, #9867f0 0%, #2188ff 100%)
+                -webkit-background-clip: text
+                -webkit-text-fill-color: transparent
+
+        .about-me_info 
+            padding-top: 10%
+            p
+                line-height: 30px
+
+
+
+
+
+
+
+
+
+// #experience-page
+    // height: 100px
+    // background-color: #f5f5f5
+
+
+
+
+
+
+
+
+#projects-page
+    position: relative
+    z-index: 12
+    padding: 100px 0
+
+    .title-block
+        height: 20%
+        display: flex
+        align-items: center
+        padding-left: 5%
+
+        .projects_title
+            transition: all .4 ease
+            font-size: 90px
+            font-weight: 700
+            background: -webkit-linear-gradient(-70deg, #ff5353 0%, #ffcc7f 100%)
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
+
+    .projects-block
+        height: 80%
+        display: flex
+        flex-wrap: wrap
+        padding: 5% 10%
+
+        .project-shell
+            @extend %flex
+            justify-content: space-between
+            margin: 60px 0
+
+            .project
+                height: 420px
+                display: flex
+                flex-direction: column
+                justify-content: space-between
+                position: relative
+                transition: all .05s ease
+
+                .project-name
+                    height: 10%
+
+                    h3 
+                        font-size: 35px
+                        font-weight: 500
+                        color: #fff
+                        transform: translateX(5%)
+                        color: #9093cc
+                        background: -webkit-linear-gradient(120deg, #fe9b76 0%, #ffe57f 100%)
+                        -webkit-background-clip: text
+                        -webkit-text-fill-color: transparent
+
+                a 
+                    width: 100%
+                    height: 85%
+                    @extend %flex
+
+                    .photo-block
+                        height: 100%
+                        width: 100%
+                        box-shadow: 0px 0px 120px 0px rgba(253, 185, 121, 0.2)
+                        transition: all .4s ease
+
+                        .project-photo
+                            height: 100%
+                            border-radius: 10px
+
+                    .photo-block:hover
+                        transform: rotate(-3deg) scale(1.02)
+                    .photo-block:active
+                        transform: rotate(-3deg) scale(0.92)
+
+            .project_onproject__0
+                top: 900px
+            .project_onproject__1
+                top: 1100px
+            .project_onproject__2
+                top: 1250px
+            .project_onproject__3
+                top: 1450px
+
+            
+            
+            .project-text 
+                width: 40%
+                p
+                    line-height: 30px
+                    color: #7376a8
+
+
+        .all-projects-block
+            height: 500px
+            width: 100%
+            @extend %flex
+            flex-direction: column
+            align-items: start
+
+            .all-projects-block-text
+                font-size: 60px
+                font-weight: 700
+                color: #7376a8
+                margin-bottom: 40px
+
+            .all-projects-but
+                overflow: hidden
+
+                .all-projects-but-text
+                    font-weight: 500
+                    color: #3a3f5e
+                    font-size: 60px
+                    transition: all .3s ease
+
+                .but-line
+                    transform: translateX(-100%)
+                    border-radius: 100px
+                    width: 100%
+                    height: 4px
+                    background-color: #3a3f5e
+                    transition: all .3s ease
+
+                .all-projects-but-text:hover
+                    color: #7376a8
+                .all-projects-but-text:hover ~ .but-line
+                    transform: translateX(0)
+                    background-color: #7376a8
+
+                .all-projects-but-text:active
+                    transform: scale(0.92)
+                .all-projects-but-text:active ~ .but-line
+                    transform: translateX(0) scale(0.92)
+
+
+
+
+
+
+
+
+
+
+.quote-page
+    height: 700px
+    // background: #f5f9ff
+    @extend %flex
+
+    .quote-block-shell
+        height: 40%
+        width: 100%
+        @extend %flex
+        flex-direction: column
+        justify-content: space-between
+
+
+        .quote
+            width: 50%
+            line-height: 40px
+
+        .autor
+            margin-top: 40px
+            width: 60%
+            text-align: end
+
+        .quote-marks
+            width: 60%
+            font-size: 50px
+
+        .quote-marks_bottom 
+            text-align: end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#contact-page
+    // height: 140vh
+    overflow: hidden
+    position: relative
+
+    .footer-page_bg
+        z-index: -1
+        position: absolute
+        bottom: 0
+        left: -5%
+        width: 120%
+        height: 100%
+
+        .bg-figure
+            border-radius: 100% 100% 0 0
+            height: 30%
+
+        .bg-block
+            height: 70%
+    
+
+    .title-block
+        height: 40vh
+        @extend %flex
+        h2
+            font-size: 60px
+            text-align: center
+
+
+    .bg-inputs-menu
+        height: 110vh
+        width: 110vw
+        position: fixed
+        top: 0
+        left: 0
+        z-index: 100000
+        display: none
+    .bg-inputs-menu:hover
+        cursor: none
+
+
+    
+    .inputs-menu
+        position: fixed
+        top: 0
+        left: 0
+        height: 100vh
+        width: 45vw
+        z-index: 99999999999
+        // background-color: #3a3f5e
+        background-color: #fff
+        border-radius: 0 20px 20px 0
+        display: none
+        transform: translateX(-200%)
+        transition: all .6s ease
+
+
+        .inputs
+            height: 100%
+            width: 70%
+            padding: 0 15%
+            @extend %flex
+            flex-direction: column
+            // justify-content: space-evenly
+
+            .input-shell
+                margin: 20px 0
+                width: 100%
+
+                .input
+                    color: #3a3f5e
+                    margin-top: 15px
+                    height: 50px
+                    width: 100%
+                    transition: all .2s ease
+                    border-bottom: 2px solid #bbc2cc
+                    background-color: inherit
+                .input::-moz-placeholder
+                    color: #bbc2cc
+                .input::-webkit-input-placeholder
+                    color: #bbc2cc
+                    
+                .textarea
+                    width: 94%
+                    padding: 3%
+                    height: 200px
+                    border-radius: 10px
+                    border: 2px solid #bbc2cc
+                    resize: none
+                .textarea::-moz-placeholder
+                    color: #bbc2cc
+                .textarea::-webkit-input-placeholder
+                    color: #bbc2cc
+
+                .input:focus
+                    border-color: #5187ff
+                    color: #3a3f5e
+                .input_correct
+                    border-color: #69ae75
+                .input_incorrect
+                    border-color: #fa7087
+
+            .inputs-but 
+                margin: 30px 0
+                font-size: 20px
+                height: 54px
+                width: 100%
+                border-radius: 10px 
+                border: 2px solid #5187ff
+                color: #5187ff
+                background-color: inherit
+                transition: all .2s ease
+
+            .inputs-but:hover 
+                cursor: pointer
+                background-color: #5187ff
+                color: #fff
+                box-shadow: 0px 10px 30px 0px rgba(81, 135, 255, 0.4)
+                transform: rotate(0) scale(0.97)
+                border: 6px solid #5187ff
+            .inputs-but:active
+                transform: rotate(0) scale(0.92)
+
+    
+
+
+
+    .next-to-inputs-menu-text
+        pointer-events: none
+        @extend %flex
+        position: fixed
+        top: 0
+        right: 0
+        height: 100vh
+        width: 55vw
+        z-index: 99999999999
+        display: none
+        transform: translateX(200%)
+        transition: transform .6s ease-in-out, opacity 1s ease-in-out
+
+        .text-area
+            width: 70%
+            text-align: center
+            h3
+                transition: all .2s ease
+                font-size: 40px
+                margin: 30px 0
+            p
+                transition: all .2s ease
+                line-height: 30px
+
+
+
+
+    .inputs-menu-block
+        height: 70vh
+        position: relative
+        @extend %flex
+        margin-bottom: 10vh
+
+        .inputs-menu-open-button
+            @extend %flex
+            transition: all .2s ease-out
+            border-radius: 500px
+
+            .ball
+                height: 370px
+                width: 370px
+                transition: all .6s ease
+                border-radius: inherit
+                transform: scale(0)
+                background: #464c6e
+
+            .i-ball_onactive
+                border-radius: 0px
+                transform: scale(1)
+                height: 110vh
+                width: 110vw
+                background-color: #1e2030
+
+
+            .i-but-text
+                white-space: nowrap
+                font-size: 55px
+                font-weight: 700
+                position: absolute
+                transition: all .3s ease-in-out
+                color: #5187ff
+                letter-spacing: 6px
+        
+        .inputs-menu-open-button_hover:hover
+            cursor: pointer
+
+            .ball 
+                transform: scale(0.8)
+
+            p
+                letter-spacing: 0px
+
+
+
+
+
+    .footer-main
+        // height: 30vh
+        @extend %flex
+        justify-content: space-between
+        padding: 0 10%
+
+        .footer-text-block 
+            .footer-main-text
+                font-size: 50px
+                font-weight: 500
+
+        .contacts-block
+            @extend %flex
+            align-items: start
+
+            .contacts
+                @extend %flex
+                flex-direction: column
+                text-align: center
+                margin: 0 30px
+
+                .contact-ul 
+                    li
+                        margin-bottom: 15px 
+                    .li-title
+                        color: #a6a7a8
+
+                .soc-med-links
+                    height: 50px
+                    width: unset
+                    padding: 0
+
+                    .icon-shell
+                        height: 50px
+                        width: 50px
+
+                        .icon
+                            height: 65%
+                            width: 65%
+                        
+
+
+    .footer-bottom
+        height: 10vh
+        width: 100%
+        @extend %flex
+
+        .footer-bottom-text 
+            color: #a6a7a8
+
+
+
+
+
+.cancel-cursor 
+    height: 70px
+    width: 70px
+    position: fixed
+    border-radius: 500px
+    box-sizing: border-box
+    transform: translate(-50%, -50%)
+    pointer-events: none
+    transition: opacity .1s ease
+    opacity: 0
+    z-index: 9999999999999999999
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ADAPTIVE */
+@import adaptiveLook
